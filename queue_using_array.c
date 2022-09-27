@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // push_back -> O(N)
-// pop_back -> O(1)
+// pop_front -> O(1)
 // printinf -> O(N)
 
 #define QUEUE_SIZE 50
@@ -14,7 +14,7 @@ typedef struct Queue Queue;
 
 Queue* push_back(Queue* q, int data)
 {
-    if(q->front == QUEUE_SIZE)
+    if(q->front >= QUEUE_SIZE)
     {
         printf("Queue Full!\n");
         return NULL;
