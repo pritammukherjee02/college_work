@@ -38,44 +38,52 @@ Node* deleteFromFront(Node* head)
     return head;
 }
 
-void printAll(Node* head)
+void printAll(Node* head, int back)
 {
     Node* temp = head;
     printf("Printing Queue:\n");
+    int i = 0;
     while(temp){
         printf("\t%d", temp->data);
         if(temp == head)
             printf(" <- Front");
+        else if(i == back)
+            printf(" <- Back");
 
         printf("\n");
+        i++;
         temp = temp->next;
     }
 }
 
 struct Queue{
     Node* head;
+    int back;
 };
 typedef struct Queue Queue;
 
 void push_back(Queue* q, int data)
 {
     q->head = insertAtBack(q->head, data);
+    q->back++;
 }
 
 void pop_front(Queue* q)
 {
     q->head = deleteFromFront(q->head);
+    q->back--;
 }
 
 void print_queue(Queue* q)
 {
-    printAll(q->head);
+    printAll(q->head, q->back);
 }
 
 int main()
 {
     Queue q;
     q.head = NULL;
+    q.back = -1;
     push_back(&q, 10);
     push_back(&q, 20);
     push_back(&q, 30);
