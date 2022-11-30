@@ -30,7 +30,7 @@ Queue* push_back(Queue* q, int data)
 
 Queue* pop_front(Queue* q)
 {
-    if(q->front == 0){
+    if(q->front <= 0){
         printf("Queue empty\n");
         return NULL;
     }
@@ -63,11 +63,33 @@ int main()
 {
     Queue q;
     q.front = -1;
-    push_back(&q, 10);
-    push_back(&q, 20);
-    push_back(&q, 30);
-    // pop_front(&q);
-    printQueue(&q);
+    int choice = 0;
+    while(choice != 5){
+        printf("Your Choices:\n1. Insert an element\n2. Delete an element\n3. Peek at front\n4. Display queue\n5. Exit\nChoose: ");
+        scanf("%d", &choice);
+
+        int num;
+        switch(choice){
+            case 1:
+                printf("Enter number: ");
+                scanf("%d", &num);
+                push_back(&q, num);
+                break;
+            case 2:
+                pop_front(&q);
+                break;
+            case 3:
+                printf("%d\n", getFront(&q));
+                break;
+            case 4:
+                printQueue(&q);
+                break;
+            default:
+                choice = 5;
+                break;
+        }
+        printf("Done\n\n");
+    }
 
     return 0;
 }

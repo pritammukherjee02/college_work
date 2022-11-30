@@ -79,15 +79,44 @@ void print_queue(Queue* q)
     printAll(q->head, q->back);
 }
 
+int getFront(Queue* q)
+{
+    return q->head->data;
+}
+
 int main()
 {
     Queue q;
     q.head = NULL;
     q.back = -1;
-    push_back(&q, 10);
-    push_back(&q, 20);
-    push_back(&q, 30);
-    print_queue(&q);
+
+    int choice = 10;
+    while(choice != 5){
+        printf("Your Choices:\n1. Insert an element\n2. Delete an element\n3. Peek at front\n4. Display queue\n5. Exit\nChoose: ");
+        scanf("%d", &choice);
+
+        int num;
+        switch(choice){
+            case 1:
+                printf("Enter number: ");
+                scanf("%d", &num);
+                push_back(&q, num);
+                break;
+            case 2:
+                pop_front(&q);
+                break;
+            case 3:
+                printf("%d\n", getFront(&q));
+                break;
+            case 4:
+                print_queue(&q);
+                break;
+            default:
+                choice = 5;
+                break;
+        }
+        printf("Done\n\n");
+    }
 
     return 0;
 }
