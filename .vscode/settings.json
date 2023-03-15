@@ -1,5 +1,11 @@
 {
 	"files.associations": {
-		"iostream": "cpp"
-	}
+		"iostream": "cpp",
+		"vector": "cpp"
+	},
+	"python.linting.pylintEnabled": false,
+	"python.linting.pylintArgs": [
+		"--errors-only",
+		"--extension-pkg-whitelist=PyQt5"
+	]
 }
