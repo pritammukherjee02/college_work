@@ -1,4 +1,3 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
 #include<string.h>
 
@@ -25,7 +24,6 @@ class Employee{
             
             std::cout << "--Employee " << i+1 << std::endl;
             std::cout << "\tName: ";
-            // std::cin >> empName;
             std::cin.getline(empName, 50);
             std::cout << "\tAge: ";
             std::cin >> empAge;
@@ -50,7 +48,6 @@ class Employee{
 
 
 int main() {
-    // Write C++ code here
     Employee* emps;
     emps = *Employee::takeInputs(3);
 
